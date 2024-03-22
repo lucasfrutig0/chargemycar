@@ -1,5 +1,7 @@
 import { useMemo } from 'react'
 import { ConnectorIcon } from '../assets/icons/ConnectorIcon'
+import { DistanceIcon } from '../assets/icons/Distance'
+import { CostIcon } from '../assets/icons/CostIcon'
 
 const LocationListItem = ({ station }: any) => {
   console.log('station', station)
@@ -83,19 +85,19 @@ const LocationListItem = ({ station }: any) => {
 
         <div className='flex items-center gap-x-2'>
           <span>
-            <ConnectorIcon />
+            <DistanceIcon />
           </span>
           <span className='text-sm leading-6 text-zinc-200/60'>
-            {totalQuantity} connectors
+            {Math.round(station.AddressInfo.Distance)}km
           </span>
         </div>
 
         <div className='flex items-center gap-x-2'>
           <span>
-            <ConnectorIcon />
+            <CostIcon />
           </span>
           <span className='text-sm leading-6 text-zinc-200/60'>
-            {totalQuantity} connectors
+            {station.UsageCost ?? 'not provided'}
           </span>
         </div>
       </div>
